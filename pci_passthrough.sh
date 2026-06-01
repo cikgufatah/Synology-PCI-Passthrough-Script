@@ -58,7 +58,7 @@ while [ $ELAPSED -lt $MAX_WAIT ]; do
 done
 
 if [ -n "$VM_ID" ]; then
-    ADDRESS=$(lspci | grep "$VENDOR:$PRODUCT" | awk '{print $1}')
+    ADDRESS=$(lspci -n | grep "$VENDOR:$PRODUCT" | awk '{print $1}')
     if [ -n "$ADDRESS" ]; then
         log "Processing PCI device at $ADDRESS"
         DOMAIN="0x0000"
